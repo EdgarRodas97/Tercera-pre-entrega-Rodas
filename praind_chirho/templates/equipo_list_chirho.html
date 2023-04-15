@@ -1,0 +1,26 @@
+{% extends 'base_chirho.html' %}
+{% block container_chirho %}
+<form action="" method="get">
+    <input id="q_chirho" name="q_chirho" type="search">
+    <button>buscar</button>
+</form>
+{% if not object_list.exists %}
+    No hay maquinaria y equipo por desplegar
+{% endif %}
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Modelo</th>
+        </tr>
+    </thead>    
+{% for maquinariaequipo_chirho in object_list %}
+        <tbody>
+            <tr>
+                <td>{{ maquinariaequipo_chirho.nombre_chirho }}</td>
+                <td>{{ maquinariaequipo_chirho.modelo_chirho }}</td>
+            </tr>
+        </tbody>
+{% endfor %}
+</table>    
+{% endblock %}

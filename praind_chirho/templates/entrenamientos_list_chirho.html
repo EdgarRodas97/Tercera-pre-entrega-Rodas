@@ -1,0 +1,24 @@
+{% extends 'base_chirho.html' %}
+{% block container_chirho %}
+<form action="" method="get">
+    <input id="q_chirho" name="q_chirho" type="search">
+    <button>buscar</button>
+</form>
+{% if not object_list.exists %}
+    No hay entrenamientos por desplegar
+{% endif %}
+<table>
+    <thead>
+        <tr>
+            <th>Nombre entrenamiento</th>
+        </tr>
+    </thead>    
+{% for entrenamientos_chirho in object_list %}
+        <tbody>
+            <tr>
+                <td>{{ entrenamientos_chirho.nombrecurso_chirho }}</td>
+            </tr>
+        </tbody>
+{% endfor %}
+</table>    
+{% endblock %}
